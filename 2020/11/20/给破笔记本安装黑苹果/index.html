@@ -15,18 +15,24 @@
 <meta property="og:site_name" content="欢迎来到知识的荒原">
 <meta property="og:description" content="这几天闲得蛋疼，看了看自己的那台今年3月份买的acer笔记本，突然萌生出了给它也吃上黑苹果的想法，并且自己也有几次“前科”，话不多说，咱们说干就干！ ⚠️注意：这里不是教程，只是给各位讲讲安装的心得，以及一些坑，相关教程网上一大堆，要养成自己学会探索爬楼的好习惯！ 一、准备工作你需要的原材料：一个空间大于16g的u盘，一颗爱折腾的心说句话题外话，u盘这东西我早在3，4年前就不怎么用了，只留了一个移">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s3-img.meituan.net/v1/mss_3d027b52ec5a4d589e68050845611e68/ff/n0/0m/0k/d3_312100.gif@596w_1l.gif">
+<meta property="og:image" content="https://s3-img.meituan.net/v1/mss_3d027b52ec5a4d589e68050845611e68/ff/n0/0m/0k/d3_312100.gif@596w_1l.gif/>
+</div>
+
+<p><img src=">
 <meta property="og:image" content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/8f459c45-886c-4029-8e2c-805f77b6db2c.jpg">
 <meta property="og:image" content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/dab577f2-ab87-4f47-b0c1-e1724e83b0c0.jpg">
 <meta property="og:image" content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/0ce452d7-7318-4f24-bbe7-98f38bbdfca8.png">
 <meta property="og:image" content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/4e67d297-d677-4326-b536-8a2bdcb52948.png">
 <meta property="og:image" content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/3f7052e3-b0e1-4432-b38f-b310102e418c.png">
 <meta property="article:published_time" content="2020-11-20T10:02:08.000Z">
-<meta property="article:modified_time" content="2020-11-21T15:06:57.215Z">
+<meta property="article:modified_time" content="2020-11-21T15:20:32.664Z">
 <meta property="article:author" content="runoobjerry">
 <meta property="article:tag" content="瞎折腾">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s3-img.meituan.net/v1/mss_3d027b52ec5a4d589e68050845611e68/ff/n0/0m/0k/d3_312100.gif@596w_1l.gif">
+<meta name="twitter:image" content="https://s3-img.meituan.net/v1/mss_3d027b52ec5a4d589e68050845611e68/ff/n0/0m/0k/d3_312100.gif@596w_1l.gif/>
+</div>
+
+<p><img src=">
   
   
   <link rel="stylesheet" type="text/css" href="/./main.37e076.css">
@@ -241,6 +247,10 @@ var _hmt = _hmt || [];
 <p>黑果小兵给的clover非常给力，经过三次重启就进了系统。</p>
 <h2 id="四、搞定驱动"><a href="#四、搞定驱动" class="headerlink" title="四、搞定驱动"></a>四、搞定驱动</h2><p>这个环节也是最复杂，最恶心人，也是最影响体验的一环。并且对于笔记本这种特异性非常强的平台要求更为严苛，我们一步步分开来讲。</p>
 <h3 id="显卡驱动"><a href="#显卡驱动" class="headerlink" title="显卡驱动"></a>显卡驱动</h3><p>鉴于老黄和厨子在驱动到底谁来写的问题上撕破脸皮，导致10.13.6以后就再也用不了web drive，我就只能尝试驱动核显，非常坑的一点就来了：<strong>我tm不知道我这款u的核显型号</strong> ，对！i5 10210u，官方也没有给出给说法。上网一查，有人说是UHD 620的换皮卡，于是乎，我就在clover configurator里尝试注入它的参数，驱动失败。后来我尝试用驱动台式电脑的<a target="_blank" rel="noopener" href="https://imacos.top/2020/01/21/1430-2/">方法</a>—用hackintool来打缓冲帧补丁，结果启动后电脑屏幕疯狂闪屏（画面一闪而过，然后黑屏，如此循环），于是我用手机录制电脑屏幕来查看画面内容，我一看，貌似是驱动成功了（如图），不过这根本就没法用啊，然后我有开始了漫长的爬楼。</p>
+<div style="align: center">
+<img src="https://s3-img.meituan.net/v1/mss_3d027b52ec5a4d589e68050845611e68/ff/n0/0m/0k/d3_312100.gif@596w_1l.gif/>
+</div>
+
 <p><img src="https://s3-img.meituan.net/v1/mss_3d027b52ec5a4d589e68050845611e68/ff/n0/0m/0k/d3_312100.gif@596w_1l.gif" alt="hackintosh 图片"></p>
 <p><a target="_blank" rel="noopener" href="https://imgbed.cn/"><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/8f459c45-886c-4029-8e2c-805f77b6db2c.jpg" alt="imgbed.cn图床"></a></p>
 <p>最后，发现爬楼发现好像是没有正确识别内建显示器，要注入<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/EDID">edid</a>，一顿操作下来还是老样子，给我气得呀！正当我想要放弃的时候，我又看了看那几个同u的成功案例，发现其中一个是图形卡识别出来的是Intel Iris Graphics 550，抱着死马当活马医的心态，打了550的补丁，还是老样子，一直闪屏。然后我又注入了edid，竟然这就成功了！（如图）</p>
