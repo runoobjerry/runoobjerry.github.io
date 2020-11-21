@@ -231,10 +231,6 @@ var _hmt = _hmt || [];
 <p>黑果小兵给的clover非常给力，经过三次重启就进了系统。</p>
 <h2 id="四、搞定驱动"><a href="#四、搞定驱动" class="headerlink" title="四、搞定驱动"></a>四、搞定驱动</h2><p>这个环节也是最复杂，最恶心人，也是最影响体验的一环。并且对于笔记本这种特异性非常强的平台要求更为严苛，我们一步步分开来讲。</p>
 <h3 id="显卡驱动"><a href="#显卡驱动" class="headerlink" title="显卡驱动"></a>显卡驱动</h3><p>鉴于老黄和厨子在驱动到底谁来写的问题上撕破脸皮，导致10.13.6以后就再也用不了web drive，我就只能尝试驱动核显，非常坑的一点就来了：<strong>我tm不知道我这款u的核显型号</strong> ，对！i5 10210u，官方也没有给出给说法。上网一查，有人说是UHD 620的换皮卡，于是乎，我就在clover configurator里尝试注入它的参数，驱动失败。后来我尝试用驱动台式电脑的<a target="_blank" rel="noopener" href="https://imacos.top/2020/01/21/1430-2/">方法</a>—用hackintool来打缓冲帧补丁，结果启动后电脑屏幕疯狂闪屏（画面一闪而过，然后黑屏，如此循环），于是我用手机录制电脑屏幕来查看画面内容，我一看，貌似是驱动成功了（如图），不过这根本就没法用啊，然后我有开始了漫长的爬楼。</p>
-<div style="align: center">
-<img src="https://s3-img.meituan.net/v1/mss_3d027b52ec5a4d589e68050845611e68/ff/n0/0m/0k/d3_312100.gif@596w_1l.gif/>
-</div>
-
 <p><img src="https://s3-img.meituan.net/v1/mss_3d027b52ec5a4d589e68050845611e68/ff/n0/0m/0k/d3_312100.gif@596w_1l.gif" alt="hackintosh 图片"></p>
 <p><a target="_blank" rel="noopener" href="https://imgbed.cn/"><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/8f459c45-886c-4029-8e2c-805f77b6db2c.jpg" alt="imgbed.cn图床"></a></p>
 <p>最后，发现爬楼发现好像是没有正确识别内建显示器，要注入<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/EDID">edid</a>，一顿操作下来还是老样子，给我气得呀！正当我想要放弃的时候，我又看了看那几个同u的成功案例，发现其中一个是图形卡识别出来的是Intel Iris Graphics 550，抱着死马当活马医的心态，打了550的补丁，还是老样子，一直闪屏。然后我又注入了edid，竟然这就成功了！（如图）</p>
