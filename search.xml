@@ -41,7 +41,7 @@
 <h2 id="搞定驱动"><a href="#搞定驱动" class="headerlink" title="搞定驱动"></a>搞定驱动</h2><p>这个环节也是最复杂，最恶心人，也是最影响体验的一环。并且对于笔记本这种特异性非常强的平台要求更为严苛，我们一步步分开来讲。</p>
 <h3 id="显卡驱动"><a href="#显卡驱动" class="headerlink" title="显卡驱动"></a>显卡驱动</h3><p>鉴于老黄和厨子在驱动到底谁来写的问题上撕破脸皮，导致10.13.6以后就再也用不了web drive，我就只能尝试驱动核显，非常坑的一点就来了：<strong>我tm不知道我这款u的核显型号</strong> ，对！i5 10210u，官方也没有给出给说法。上网一查，有人说是UHD 620的换皮卡，于是乎，我就在clover configurator里尝试注入它的参数，驱动失败。后来我尝试用驱动台式电脑的<a href="https://imacos.top/2020/01/21/1430-2/">方法</a>—用hackintool来打缓冲帧补丁，结果启动后电脑屏幕疯狂闪屏（画面一闪而过，然后黑屏，如此循环），于是我用手机录制电脑屏幕来查看画面内容，我一看，貌似是驱动成功了（如图），不过这根本就没法用啊，然后我有开始了漫长的爬楼。</p>
 <p>[<div align=center><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/d7fe19f2-1939-4193-911b-d41d775b6225.gif" alt="imgbed.cn图床"></div>]</p>
-<p><a href="https://imgbed.cn/"><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/8f459c45-886c-4029-8e2c-805f77b6db2c.jpg" alt="imgbed.cn图床"></a></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/8f459c45-886c-4029-8e2c-805f77b6db2c.jpg" alt="启动失败"></p>
 <p>最后，发现爬楼发现好像是没有正确识别内建显示器，要注入<a href="https://baike.baidu.com/item/EDID">edid</a>，一顿操作下来还是老样子，给我气得呀！正当我想要放弃的时候，我又看了看那几个同u的成功案例，发现其中一个是图形卡识别出来的是Intel Iris Graphics 550，抱着死马当活马医的心态，打了550的补丁，还是老样子，一直闪屏。然后我又注入了edid，竟然这就成功了！（如图）</p>
 <p><a href="https://imgbed.cn/"><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/dab577f2-ab87-4f47-b0c1-e1724e83b0c0.jpg" alt="imgbed.cn图床"></a></p>
 <p>下了switchresx，发现已经带上了hidpi的分辨率（估计是edid的功劳）。至此显卡驱动成功！</p>
@@ -60,9 +60,9 @@
 <h3 id="使用体验"><a href="#使用体验" class="headerlink" title="使用体验"></a>使用体验</h3><p>开了hidpi的macOS看起来还是非常舒适的，动画也算苏菲级的体验（偶尔掉帧），暂时没碰到系统级的崩溃，另外mac上的优秀app也很多，不过用来做生产力还是差那么点意思（纯体验一下就好），笔记本在运行过程中也还算“冷静”（除了下载东西和跑Xcode模拟机的时候，直接起飞），一般的使用需求基本也能满足啦！回头换上网卡体验估计会更好！</p>
 <p>在续航上，轻度使用情况下大概是4个小时左右，鉴于出门在外要靠插iPhone来提供热点，续航只剩不到3小时的，相对于win10下的7小时显得非常拉垮。</p>
 <p>最后附上几张使用时截图吧！</p>
-<p><a href="https://imgbed.cn/"><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/0ce452d7-7318-4f24-bbe7-98f38bbdfca8.png" alt="imgbed.cn图床"></a></p>
-<p><a href="https://imgbed.cn/"><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/4e67d297-d677-4326-b536-8a2bdcb52948.png" alt="imgbed.cn图床"></a></p>
-<p><a href="https://imgbed.cn/"><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/3f7052e3-b0e1-4432-b38f-b310102e418c.png" alt="imgbed.cn图床"></a></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/0ce452d7-7318-4f24-bbe7-98f38bbdfca8.png" alt="主界面"></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/4e67d297-d677-4326-b536-8a2bdcb52948.png" alt="使用画面"></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/3f7052e3-b0e1-4432-b38f-b310102e418c.png" alt="一些常用的app"></p>
 <h3 id="还有一件事"><a href="#还有一件事" class="headerlink" title="还有一件事"></a>还有一件事</h3><p>折腾黑苹果也有这么些年了，从当初的10.10.4到现在的10.15.6，黑苹果的安装门槛也越来越低了，不过还是会遇到很多细节上的小问题，这是非常考验耐心和消耗时间的，从解决一个个小问题，到成功运行这个过程也是非常有成就感的。「天下无难事，只怕有心人」用这句话来形容这个过程我觉得非常贴切。好了，就先写到这儿来。㊗️每一个爱折腾的你都能成功！</p>
 <p>2020.11.19</p>
 ]]></content>
